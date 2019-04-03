@@ -1,5 +1,3 @@
-import Data.List
-
 -- Complete the angryProfessor function below.
 angryProfessor :: Int -> [Int] -> String
 angryProfessor t a  = rs $ go a 0 where
