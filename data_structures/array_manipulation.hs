@@ -1,3 +1,4 @@
+-- Using an immutable list is quite inefficient for large data. See the other solution using IOArray.
 arrayManipulation :: Int -> [[Int]] -> Int
 arrayManipulation n queries = go (replicate n 0) queries where
   go :: [Int] -> [[Int]] -> Int
@@ -12,4 +13,3 @@ partialMap xs [a,b,k] =
   in fst x ++ z ++ snd y
 partialMap _ _        = []
 
-main = putStrLn ""
