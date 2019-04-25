@@ -6,11 +6,11 @@
   --go l@(y:ys) i = if i == d then l else go (ys ++ [y]) (i+1)
 
 leftRotation :: [Int] -> Int -> [Int]
-leftRotation xs i =
-  if i == length xs then xs
-  else
-    let p = splitAt i xs
-    in snd p ++ fst p
+leftRotation xs i
+  | i == length xs = xs
+  | otherwise      =
+      let p = splitAt i xs
+      in snd p ++ fst p
 
 singleLine :: [Int] -> String
 singleLine xs = unwords (show <$> xs)
