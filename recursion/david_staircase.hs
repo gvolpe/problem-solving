@@ -17,7 +17,7 @@ step :: Int -> Int
 step n | n < 0     = 0
        | otherwise = steps !! n
 
--- another efficient solution
+-- tail recursive
 step' :: Int -> Int
 step' n = go 0 0 1 [1 .. n] where
   go _ _ c []       = c
