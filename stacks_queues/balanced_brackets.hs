@@ -15,7 +15,7 @@ bracket c = maybeToList $ snd <$> find (\(x, _) -> x == c) xs
   where xs = openingBracket `zip` closingBracket
 
 isBalanced :: String -> Bool
-isBalanced xs = go xs [] where
+isBalanced str = go str [] where
   go :: String -> String -> Bool
   go (x : xs) (y : ys) | x `elem` openingBracket = go xs (bracket x ++ y : ys)
                        | x == y                  = go xs ys
