@@ -12,6 +12,18 @@ object Main extends App {
 
   val list = List.range(1, 11)
 
+  val plus: (Int, Int) => Int = {
+    case (acc, n) => acc + n
+  }
+
+  def foldLeft[A, B](list: List[A])(b: B)(f: (B, A) => B): B =
+    list match {
+      case Nil       => b
+      case (x :: xs) => foldLeft(xs)(f(b, x))(f)
+    }
+
+  assert(list.foldLeft(0)(plus) == foldLeft(list)(0)(plus))
+
   def takeN[A](list: List[A], n: Int): List[A] =
     (list, n) match {
       case (_, 0)                    => Nil
